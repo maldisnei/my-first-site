@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+
+					
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-md-4" style="margin-top: 40px;">
+			<img src="http://www.curiosidadesemportugues.eu/wp-content/uploads/2016/02/0capa-24.jpg" class="img-responsive"/>
+			</div>
+			<div class="col-xs-12 col-sm-8 col-md-8">
+				<div class="post">
+					<div class="date">
+				        <p>published: {{ post.published_date }}</p>
+					</div>
+				<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<h1>{{ post.titulo }}</h1>
+				<p> {{ post.testo|linebreaksbr }}
+				</div>
+			</div>
+	</div>
+					
+{% endblock content %}	

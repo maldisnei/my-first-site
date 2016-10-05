@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+			
+				{% for post in postes %}
+					<div class="post">
+						
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4" style="margin-top: 40px;">
+							<img src="http://www.educelerate.com/wp-content/uploads/2012/11/Educelerate-3002-280x280.png" class="img-responsive" />
+						</div>
+						<div class="col-xs-12 col-sm-8 col-md-8">
+							<div class="date">
+								<p>published: {{ post.published_date }}</p>
+							</div>
+							
+							<h1><a href="{% url 'blog.views.detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
+							<p> {{ post.testo|linebreaksbr }}
+						</div>
+					</div>
+					</div>
+					
+				{% endfor %}				
+			
+			
+	{% endblock content %}
+					

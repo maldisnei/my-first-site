@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		<title> blog em django</title>
+	</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button  class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-exemple-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+				</button>
+				<a class="navbar-brand" href="#">Menu Site</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-exemple-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">Home</a></li>
+					<li class="dropdown-menu"><a href="#" class="dropdown-toggle"  data-toggle="dropdown">Categorias<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Jogos</a></li>
+							<li class="divider"></li>
+							<li><a href="#">tutorial</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Video aulas</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="#">Empresa</a></li>
+					<li><a href="#">Contato</a></li>
+					<li><a href="{% url 'blog.views.post_new' %}"><span class="glyphicon glyphicon-plus"></span></a></li>
+				</ul>
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group"><input class="form-control" type="text" placeholder="Pesquisar" />
+					<button class="btn btn-default" type="submit">Pesquisar</button>
+				</form>
+			</div>
+		</div>
+	</nav><!-- Fim do menu sperior -->
+	<!-- Aqui começa o conteudo -->
+	<div class="wrapper" role="main">
+		<div class="container-fluid">
+			<div class="row">
+				<div id="conteudo" class="col-xs-12 col-sm-8 col-md-9">
+					
+						
+						{% block content %}
+						{% endblock content %}
+					
+					
+				</div>
+					<div id="sidebar" class="col-xs-12 col-sm-4 col-md-3">
+						<div class="widget">
+							<h3>NewSletter</h3>
+							<form class="form" role="form">
+								<div class="form-group">
+									<label class="sr-only" for="exempleInputEmail">Entre com email</label>
+									<input type="email" class="form-control" id="exempleInputEmail2" placeholder="Entre com seu email">
+								</div>
+								<button type="submit" class="btn btn-sucess">Cadastrar</button>
+							</form>
+						</div>
+						<div class="widget">
+					
+							<h3>Parceiro</h3>
+							<ul>
+								<li><a href="#">Parceiro 1</a></li>
+								<li><a href="#">Parceiro 2</a></li>
+								<li><a href="#">Parceiro 3</a></li>
+								<li><a href="#">Parceiro 4</a></li>
+								<li><a href="#">Parceiro 5</a></li>
+							</ul>
+						</div>
+					</div>
+				
+						
+			</div>
+			
+		</div>	
+	</div><!--Fim do contoudo -->
+	<footer><!--Aqui a area do footer -->
+		<div class="container">
+			<div class="row">
+				<div id="linksImportantes" class="col-xs-12 col-sm-3 col-md-3">
+					<h1>links importantes</h1>
+					<ul>
+						<li><a href="#">link 1</a></li>
+						<li><a href="#">link 2</a></li>
+						<li><a href="#">link 3</a></li>
+					</ul>
+				</div>
+				<div id="redesSociais" class="col-xs-12 col-sm-3 col-md-3">
+					<h1> Redes sociais</h1>
+						<ul>
+							<a href="#"><li>Faceboock</li></a>
+							<a href="#"><li>Twitter</li></a>
+							<a href="#"><li>WatZap</li></li>
+						</ul>
+				</div>
+				<div id="logoFooter" class="col-xs-12 col-sm-3 col-md-3 col-sm-offset-3 col-md-offset-3 col-md-3">
+					<h1><a href="#">Meu sites</a></h1>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>&copy; Todos os direitos reservados.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
