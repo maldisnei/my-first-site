@@ -14,3 +14,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+
+class Comment(models.Model):
+    post = models.ForeignKey('Post', related_name='comments')
+    author = models.CharField(max_length=200)
+    testo = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.testo
+    def approved(self):
+        self.approved_comment =True
+        self.save()

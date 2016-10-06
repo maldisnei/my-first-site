@@ -17,6 +17,7 @@
 							
 							<h1><a href="{% url 'blog.views.detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
 							<p> {{ post.testo|linebreaksbr }}
+							<a href="{% url 'detail' pk=post.pk %}">Comentários: {{ post.approved_comments.count }}</a>
 						</div>
 					</div>
 					</div>
